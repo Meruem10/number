@@ -1,0 +1,4 @@
+# ignore vscode stuff
+.vscode
+*.o
+*.exe
