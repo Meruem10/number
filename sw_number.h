@@ -14,12 +14,9 @@ typedef struct  {
 
 
 // Functions
-large_number add(small_number_type* num_1_high, small_number_type* num_1_low, small_number_type* num_2_high, small_number_type* num_2_low);
-
-large_number subtract(small_number_type* num_1_high, small_number_type* num_1_low, small_number_type* num_2_high, small_number_type* num_2_low);
-
-large_number multiply(small_number_type* num_1_high, small_number_type* num_1_low, small_number_type* num_2_high, small_number_type* num_2_low);
-
-large_number division(small_number_type* num_1_high, small_number_type* num_1_low, small_number_type* num_2_high, small_number_type* num_2_low);
+large_number add(large_number* num_1, large_number* num_2);
+large_number subtract(large_number* num_1, large_number* num_2);
+large_number multiply(large_number* num_1, large_number* num_2);
+large_number division(large_number* num_1, large_number* num_2);
 
 #endif
