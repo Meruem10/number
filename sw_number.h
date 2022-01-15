@@ -7,7 +7,7 @@ typedef uint8_t small_number_type; // set the small number type
 
 // Macros
 #define SMALL_NUMBER_MAX_VALUE = (1 << sizeof(small_number_type)*8) - 1 // maximum value of smaller datatype
-#define LARGE_NUMBER_MAX_VALUE = 2*SMALL_NUMBER_MAX_VALUE // maximum value of larger datatype
+#define LARGE_NUMBER_MAX_VALUE = 2*(SMALL_NUMBER_MAX_VALUE + 1) - 1 // maximum value of larger datatype
 
 // Struct
 typedef struct  {
