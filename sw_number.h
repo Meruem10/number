@@ -3,8 +3,8 @@
 
 
 // Typedefs
-typedef uint8_t unsigned char;
-typedef small_number_type uint8_t; // set the small number type
+typedef unsigned char uint8_t;
+typedef uint8_t small_number_type; // set the small number type
 
 // Struct
 typedef struct  {
