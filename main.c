@@ -15,7 +15,6 @@ int main(void)
     unsigned int num_2 = 7;
     large_number num_2_struct = num_to_struct(num_2);
 
-    large_number num_3_struct = add(&num_1_struct, &num_2_struct);
 
     printf("\nNumber 1: \n");
     print_num_binary(&num_1_struct);
@@ -28,6 +27,7 @@ int main(void)
     printf("\n");
 
     printf("Number 1 + Number 2: \n");
+    large_number num_3_struct = add(&num_1_struct, &num_2_struct);
     print_num_binary(&num_3_struct);
     print_num_decimal(&num_3_struct);
     printf("\n");

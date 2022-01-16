@@ -2,7 +2,8 @@
 #include<stdlib.h> // exit(0) function
 #include "sw_number.h"
 
-void * memcpy ( void * destination, const void * source, long unsigned int num); // function from <string.h> library
+// function from <string.h> library
+void * memcpy ( void * destination, const void * source, long unsigned int num);
 void * memset(void *str, int c, long unsigned int n);
 
 
