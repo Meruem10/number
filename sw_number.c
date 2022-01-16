@@ -2,6 +2,7 @@
 #include "sw_number.h"
 
 void * memcpy ( void * destination, const void * source, long unsigned int num); // function from <string.h> library
+void *memset(void *str, int c, long unsigned int n);
 
 // Print
 void print_num(large_number* num)
@@ -18,14 +19,20 @@ large_number all_operation(large_number* num_1, large_number* num_2, int choice)
 large_number add(large_number* num_1, large_number* num_2)
 {
     // Array saving small_number_type as unisigned chars (i.e. index each byte)
-    uint8_t num_1_low_bytes[SMALL_NUMBER_BYTES] = {0};
-    uint8_t num_1_high_bytes[SMALL_NUMBER_BYTES] = {0};
+    uint8_t num_1_low_bytes[SMALL_NUMBER_BYTES];
+    uint8_t num_1_high_bytes[SMALL_NUMBER_BYTES];
+    memset(num_1_low_bytes, 0, SMALL_NUMBER_BYTES);
+    memset(num_1_high_bytes, 0, SMALL_NUMBER_BYTES);
     
-    uint8_t num_2_low_bytes[SMALL_NUMBER_BYTES] = {0};
-    uint8_t num_2_high_bytes[SMALL_NUMBER_BYTES] = {0};
+    uint8_t num_2_low_bytes[SMALL_NUMBER_BYTES];
+    uint8_t num_2_high_bytes[SMALL_NUMBER_BYTES];
+    memset(num_2_low_bytes, 0, SMALL_NUMBER_BYTES);
+    memset(num_2_high_bytes, 0, SMALL_NUMBER_BYTES);
 
-    uint8_t num_3_low_bits[SMALL_NUMBER_BITS] = {0};
-    uint8_t num_3_high_bits[SMALL_NUMBER_BITS] = {0};
+    uint8_t num_3_low_bits[SMALL_NUMBER_BITS];
+    uint8_t num_3_high_bits[SMALL_NUMBER_BITS];
+    memset(num_3_low_bits, 0, SMALL_NUMBER_BITS);
+    memset(num_3_high_bits, 0, SMALL_NUMBER_BITS);
 
     // Copy 
     memcpy(num_1_low_bytes, &num_1->low, sizeof(small_number_type));
