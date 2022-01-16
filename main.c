@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include "sw_number.h"
 
 int main(void)
@@ -8,10 +9,10 @@ int main(void)
     printf("Maximum large number: %u\n", LARGE_NUMBER_MAX_VALUE);
 
     // Some test cases
-    unsigned int num_1 = 300;
+    unsigned int num_1 = 65530;
     large_number num_1_struct = num_to_struct(num_1);
 
-    unsigned int num_2 = 200;
+    unsigned int num_2 = 7;
     large_number num_2_struct = num_to_struct(num_2);
 
     large_number num_3_struct = add(&num_1_struct, &num_2_struct);

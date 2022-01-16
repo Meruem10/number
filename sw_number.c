@@ -29,7 +29,7 @@ void print_num_binary(large_number* num)
 void print_num_decimal(large_number* num)
 {
     unsigned int dec_num = 0;
-    for(uint8_t i = 0; i < 2*SMALL_NUMBER_BITS - 1; i++)
+    for(uint8_t i = 0; i < 2*SMALL_NUMBER_BITS; i++)
     {
         if(i < SMALL_NUMBER_BITS)               // lower bits
         {
