@@ -17,8 +17,8 @@ typedef uint8_t small_number_type; // set the small number type
 
 // Struct
 typedef struct  {
-    small_number_type high; // higer bits
-    small_number_type low; // lower bits
+    uint8_t high[SMALL_NUMBER_BITS]; // higer bits
+    uint8_t low[SMALL_NUMBER_BITS]; // lower bits
 } large_number;
 
 
@@ -28,7 +28,9 @@ large_number subtract(large_number* num_1, large_number* num_2);
 large_number multiply(large_number* num_1, large_number* num_2);
 large_number division(large_number* num_1, large_number* num_2);
 
-// Print
-void print_num(large_number* num);
+// Helper
+void print_num_binary(large_number* num);
+void print_num_decimal(large_number* num);
+large_number num_to_struct(unsigned int num);
 
 #endif

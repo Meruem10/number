@@ -8,23 +8,10 @@ int main(void)
     printf("Maximum large number: %u\n", LARGE_NUMBER_MAX_VALUE);
 
     // Some test cases
-    small_number_type num_1_low =  00;
-    small_number_type num_1_high = 10; // num_1 = 100'00
-
-    small_number_type num_2_low = 00;
-    small_number_type num_2_high = 15; // num_2 = 100'00
-
-
-    large_number num_1 = {.high = num_1_high, .low = num_1_low}; 
-    large_number num_2 = {.high = num_2_high, .low = num_2_low};
-
-    
-    print_num(&num_1);
-    print_num(&num_2);
-
-    // add function
-    large_number num_3 = add(&num_1, &num_2);
-    print_num(&num_3);
+    unsigned int num = 300;
+    large_number num_struct = num_to_struct(300);
+    print_num_binary(&num_struct);
+    print_num_decimal(&num_struct);
 
 
     return 0;
