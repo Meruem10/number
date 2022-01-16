@@ -18,14 +18,14 @@ large_number all_operation(large_number* num_1, large_number* num_2, int choice)
 large_number add(large_number* num_1, large_number* num_2)
 {
     // Array saving small_number_type as unisigned chars (i.e. index each byte)
-    uint8_t num_1_low_bytes[SMALL_NUMBER_BYTES];
-    uint8_t num_1_high_bytes[SMALL_NUMBER_BYTES];
+    uint8_t num_1_low_bytes[SMALL_NUMBER_BYTES] = {0};
+    uint8_t num_1_high_bytes[SMALL_NUMBER_BYTES] = {0};
     
-    uint8_t num_2_low_bytes[SMALL_NUMBER_BYTES];
-    uint8_t num_2_high_bytes[SMALL_NUMBER_BYTES];
+    uint8_t num_2_low_bytes[SMALL_NUMBER_BYTES] = {0};
+    uint8_t num_2_high_bytes[SMALL_NUMBER_BYTES] = {0};
 
-    uint8_t num_3_low_bits[SMALL_NUMBER_BITS];
-    uint8_t num_3_high_bits[SMALL_NUMBER_BITS];
+    uint8_t num_3_low_bits[SMALL_NUMBER_BITS] = {0};
+    uint8_t num_3_high_bits[SMALL_NUMBER_BITS] = {0};
 
     // Copy 
     memcpy(num_1_low_bytes, &num_1->low, sizeof(small_number_type));
@@ -34,10 +34,10 @@ large_number add(large_number* num_1, large_number* num_2)
     memcpy(num_2_high_bytes, &num_2->high, sizeof(small_number_type));
 
     // Go through all Bits of lower half
-    uint8_t num_1_low_bit;
-    uint8_t num_2_low_bit;
-    uint8_t num_1_high_bit;
-    uint8_t num_2_high_bit;
+    uint8_t num_1_low_bit = 0;
+    uint8_t num_2_low_bit = 0;
+    uint8_t num_1_high_bit = 0;
+    uint8_t num_2_high_bit = 0;
 
     uint8_t carry = 0;
     for(uint8_t i = 0; i < SMALL_NUMBER_BITS; i++)
@@ -47,8 +47,6 @@ large_number add(large_number* num_1, large_number* num_2)
         // Second part shifts a 1 to the specific Bit location and compares with the Byte to see if it is a 1
         num_1_low_bit = ((num_1_low_bytes[i/8]) & (1 << (i%8))) != 0; 
         num_2_low_bit = ((num_2_low_bytes[i/8]) & (1 << (i%8))) != 0;
-
-        printf("Low: %d\n", num_2_low_bit);
 
         // Addition
         switch(num_1_low_bit + num_2_low_bit + carry)
@@ -78,8 +76,6 @@ large_number add(large_number* num_1, large_number* num_2)
         num_1_high_bit = ((num_1_high_bytes[i/8]) & (1 << (i%8))) != 0; // Link: https://stackoverflow.com/questions/44978126/structure-for-an-array-of-bits-in-c
         num_2_high_bit = ((num_2_high_bytes[i/8]) & (1 << (i%8))) != 0; 
 
-        printf("High %d\n", num_2_high_bit);
-
         // Addition
         switch(num_1_high_bit + num_2_high_bit + carry)
         {
@@ -105,12 +101,19 @@ large_number add(large_number* num_1, large_number* num_2)
     // Check for overflow
     if(carry == 1)
     {
-
+        printf("Overflow happens!");
     }
 
-    // Convert Bit array to Byte array
+    // Convert Bit array to decimal number and return large_number struct
+    large_number num_3 = {.high = 0, .low = 0};
+    for(uint8_t i = 0; i < SMALL_NUMBER_BITS; i++)
+    {
+        // Bit*2^i
+        num_3.low += (1 << i)*num_3_low_bits[i]; 
+        num_3.high += (1 << i)*num_3_high_bits[i];
+    }
 
-
+    return num_3;
 }
 
 large_number subtract(large_number* num_1, large_number* num_2)
