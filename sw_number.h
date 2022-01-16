@@ -28,4 +28,7 @@ large_number subtract(large_number* num_1, large_number* num_2);
 large_number multiply(large_number* num_1, large_number* num_2);
 large_number division(large_number* num_1, large_number* num_2);
 
+// Print
+void print_num(large_number* num);
+
 #endif

@@ -9,10 +9,10 @@ int main(void)
 
     // Some test cases
     small_number_type num_1_low =  00;
-    small_number_type num_1_high = 100; // num_1 = 100'00
+    small_number_type num_1_high = 10; // num_1 = 100'00
 
     small_number_type num_2_low = 00;
-    small_number_type num_2_high = 200; // num_2 = 100'00
+    small_number_type num_2_high = 15; // num_2 = 100'00
 
 
     large_number num_1 = {.high = num_1_high, .low = num_1_low}; 
@@ -21,6 +21,10 @@ int main(void)
     
     print_num(&num_1);
     print_num(&num_2);
+
+    // add function
+    large_number num_3 = add(&num_1, &num_2);
+    print_num(&num_3);
 
 
     return 0;
